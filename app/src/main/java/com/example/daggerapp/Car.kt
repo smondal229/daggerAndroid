@@ -3,6 +3,7 @@ package com.example.daggerapp
 import android.util.Log
 import javax.inject.Inject
 
+@PerActivity
 class Car {
 
     private var engine : Engine

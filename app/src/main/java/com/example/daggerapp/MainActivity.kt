@@ -1,9 +1,10 @@
 package com.example.daggerapp
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import javax.inject.Inject
+
 
 class MainActivity : AppCompatActivity() {
     @Inject
@@ -13,7 +14,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val daggerCar: CarComponent = DaggerCarComponent.builder().horsePower(100).build()
+
+        val daggerCar : CarComponent = (application as DaggerApp).getCarComponent()
         daggerCar.inject(this)
 
         Log.d("Car instance", "$car")

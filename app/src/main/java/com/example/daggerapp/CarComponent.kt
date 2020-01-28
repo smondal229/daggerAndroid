@@ -5,7 +5,7 @@ import dagger.Component
 import javax.inject.Named
 import javax.inject.Singleton
 
-@Singleton
+@PerActivity
 @Component (
     modules = [WheelModule::class, PetrolEngineModule::class]
 )
@@ -20,6 +20,9 @@ interface CarComponent {
 
         @BindsInstance
         fun horsePower(@Named("horse_power") horsePower: Int): Builder
+
+        @BindsInstance
+        fun engineCapacity(@Named("capacity") capacity: Int): Builder
 
         fun build(): CarComponent
     }
